@@ -4,13 +4,14 @@
 function startPreloader() {
   setTimeout(preloader,"2000");
 }
+
 function preloader() {
   var preloader = document.getElementById("preloader");
   preloader.style.display = "none";
 }
 
 // API Fetching
-const url = "http://api.ishandeveloper.com/30days";
+const url = "http://api.ishandeveloper.com/30days/5";
 fetch(url).then(function (response) {
   // The API call was successful!
   if (response.ok) {
@@ -63,6 +64,7 @@ function duplicateCards(numberOfCards, dataArray) {
       else
       starIcon += "<i class='fa fa-star' aria-hidden='true' style='color: goldenrod; opacity : 0.3;'></i>";
     }
+
     const card = `<div class="d-flex flex-row">
     <div
       class="d-inline-flex px-5 justify-content-center align-items-center child-serial-no"
