@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Preloader */
+#preloader {
+  background: #ffffff url("../images/logoDSC.png") no-repeat center;
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+  z-index: 100000;
+  animation: zoom infinite 2500ms;
+}
+
+body {
+  background: #fafafa;
+}
+/* Navbar */
+.link-styling {
+  font: bold 20px Poppins;
+}
+
+/* Player 1 container */
+.child {
+  border-radius: 10px;
+  color: #ffffff;
+  position: relative;
+}
+
+.child-serial-no {
+  font: bold 50px "Poppins", sans-serif;
+}
+
+.child-player-name {
+  font-family: "Poppins", sans-serif;
+  font-size: 50px;
+}
+
+.child-trophy-container {
+  flex: 2;
+}
+
+/* Other Players */
+
+.child-trophy-players {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 100px;
+  width: 100%;
+}
+
+.nav__logo {
+  padding: 1rem 0;
+}
+.leaderboard__nav {
+  background: #007bff;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  align-items: center;
+}
+.leaderboard__nav .col-md-6 {
+  padding: 1.5rem 1rem !important;
+}
+.nav__items {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+}
+.nav__item {
+  padding: 1rem 1.25rem;
+}
+.nav__item a {
+  color: white;
+  font-size: 1.25rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all ease-in-out 250ms;
+}
+
+.nav__item a:hover {
+  font-weight: 700;
+  color: #e6e6e6;
+}
+
+@media screen and (max-width: 720px) {
+  .leaderboard__nav .col-md-6 {
+    padding: 0.5rem 1rem !important;
+  }
+
+  .child-player-name {
+    text-align: left;
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .leaderboard__nav .col-md-6 {
+    padding: 1rem 1rem !important;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .leaderboard__nav .col-md-6 {
+    padding: 0.75rem 1rem !important;
+  }
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.last__updated {
+  font-size: 1.25em;
+  overflow-y: hidden;
+  margin: 0 auto;
+  width: 80vw;
+}
+
+.parent-wrapper {
+  padding-bottom: 2rem;
+}
+
+/* Styles for Footer Area */
+
+.footer-area {
+  background: #E7E7EC;
+  padding: 25px 0px;
+}
+
+.copyright {
+  font-size: 0.9em;
+  text-align: center;
+  font-weight: 500;
+  color: #444444;
+}
+.handles {
+  color: #4392de;
+  font-weight: 700;
+  transition: all ease-in 0.25s;
+}
+.handles:hover {
+  text-decoration: none;
+  font-weight: 700;
+}
+.madeby {
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 768px) {
+  .copyright {
+    font-size: 0.75em;
+  }
+  .madeby {
+    font-size: 0.65em;
+  }
+
+  #preloader {
+  background: #ffffff url("../images/logoDSC.png") no-repeat center;
+  height: 100vh;
+  position: fixed;
+  background-size: contain;
+  width: 100%;
+  z-index: 100000;
+  animation: zoom-small infinite 2500ms;
+}
+@keyframes zoom-small {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+}
