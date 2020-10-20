@@ -10,7 +10,8 @@ function preloader() {
 }
 
 // API Fetching
-const url = "http://api.ishandeveloper.com/30days";
+const url =
+  "https://cors-anywhere.herokuapp.com/http://api.ishandeveloper.com/30days";
 fetch(url)
   .then(function (response) {
     // The API call was successful!
