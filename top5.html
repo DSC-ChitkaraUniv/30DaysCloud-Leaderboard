@@ -1,73 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Leaderboard - #30DaysOfCloud | DSC CIET</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaderboard - #30DaysOfCloud | DSC CIET</title>
 
-		<!-- Main Stylesheet -->
-		<link rel="stylesheet" href="static/css/style.css" />
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="static/css/style.css" />
 
-		<!-- fontawesome cdn -->
-		<link
-			rel="stylesheet"
-			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-		/>
+    <!-- fontawesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
-		<!-- Bootstrap CSS -->
-		<link
-			rel="stylesheet"
-			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-			crossorigin="anonymous"
-		/>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
 
-		<!-- Jquery -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	</head>
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
 
-	<body onload="startPreloader()" style="background-color: #353535">
-		<!-- Preloader -->
-		<div id="preloader"></div>
+  <body onload="startPreloader()">
+    <!-- Preloader -->
+    <div id="preloader"></div>
 
-		<!-- Navbar -->
-		<nav class="navbar navbar-expand-sm navbar-expand navbar-dark bg-primary">
-			<a class="navbar-brand" href="#"
-				><img src="static/images/navbarLogo.png" height="50px"
-			/></a>
-			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-				<li class="nav-item px-3">
-					<a class="nav-link link-styling" href="top20.html">Top 20</a>
-				</li>
-				<li class="nav-item active px-3">
-					<a class="nav-link link-styling" href="top5.html">Top 5</a>
-				</li>
-				<li class="nav-item px-3">
-					<a class="nav-link link-styling" href="index.html">All</a>
-				</li>
-			</ul>
-		</nav>
+    <!-- Navbar -->
+    <nav class="leaderboard__nav row">
+      <div class="col-md-6">
+        <a class="nav__logo" href="#"
+          ><img src="static/images/navbarLogo.png" height="50px"
+        /></a>
+      </div>
+      <div class="col-md-6 nav__items">
+        <li class="nav__item">
+          <a href="top20.html">Top 20</a>
+        </li>
+        <li class="nav__item">
+          <a href="top5.html">Top 5</a>
+        </li>
+        <li class="nav__item">
+          <a href="index.html">All</a>
+        </li>
+      </div>
+    </nav>
 
-		<!-- Player cards -->
-		<div class="mt-5 parent-wrapper"></div>
+    <h3 class="mt-5 last__updated"></h3>
 
-		<script src="static/js/top5.js"></script>
-		<!-- Optional JavaScript -->
-		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		<script
-			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-			crossorigin="anonymous"
-		></script>
-	</body>
+    <!-- Player cards -->
+    <div class="mt-5 parent-wrapper"></div>
+
+    <section class="footer-area">
+      <div class="row justify-content-center" style="margin: 0">
+        <div
+          class="col-md-12 align-items-center flex-column"
+          style="display: flex"
+        >
+          <div class="copyright">
+            All the information displayed above is done after consent from the
+            respective individuals.<br />
+            The usage of the data is strictly restricted to this leaderboard
+            only.
+          </div>
+          <div class="madeby">
+            Made with ❤️ by
+            <a
+              href="https://github.com/Neeraj3508"
+              target="_blank"
+              rel="noopener"
+              class="handles"
+              >@Neeraj3508</a
+            >
+            &
+            <a
+              href="https://github.com/ishandeveloper"
+              target="_blank"
+              rel="noopener"
+              class="handles"
+              >@ishandeveloper</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="static/js/top5.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

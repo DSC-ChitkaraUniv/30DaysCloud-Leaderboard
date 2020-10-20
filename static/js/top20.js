@@ -2,9 +2,8 @@
 
 // Added Preloader
 function startPreloader() {
-  setTimeout(preloader,"2000");
+  setTimeout(preloader, "5000");
 }
-
 function preloader() {
   var preloader = document.getElementById("preloader");
   preloader.style.display = "none";
@@ -12,23 +11,28 @@ function preloader() {
 
 // API Fetching
 const url = "http://api.ishandeveloper.com/30days/20";
-fetch(url).then(function (response) {
-  // The API call was successful!
-  if (response.ok) {
-    return response.json();
-  } else {
-    return Promise.reject(response);
-  }
-}).then(function (data) {
-  // This is the JSON from our response
-  // console.log(data.stats.length);
-  // console.log(data.stats);
-  duplicateCards(data.stats.length, data.stats);
-}).catch(function (err) {
-  // There was an error
-  console.warn('Something went wrong.', err);
-});
-
+fetch(url)
+  .then(function (response) {
+    // The API call was successful!
+    if (response.ok) {
+      return response.json();
+    } else {
+      return Promise.reject(response);
+    }
+  })
+  .then(function (data) {
+    // This is the JSON from our response
+    // console.log(data.stats.length);
+    // console.log(data.stats);
+    document.querySelector(
+      ".last__updated"
+    ).innerHTML = `Last Updated On: ${data.last_updated}`;
+    duplicateCards(data.stats.length, data.stats);
+  })
+  .catch(function (err) {
+    // There was an error
+    console.warn("Something went wrong.", err);
+  });
 
 // Find Stars
 function findStars(numberOfQuests) {
@@ -42,7 +46,6 @@ function findStars(numberOfQuests) {
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
-
 
 // Replicating divisions
 
@@ -58,14 +61,15 @@ function duplicateCards(numberOfCards, dataArray) {
     var parent = document.querySelector(".parent-wrapper");
     var newDivision = document.createElement("div");
     let starIcon = "";
-    for(let j = 0; j < 5; j++) {
-      if(j <= numberOfStars)
-      starIcon += "<i class='fa fa-star' aria-hidden='true' style='color: goldenrod'></i>";
+    for (let j = 0; j < 5; j++) {
+      if (j <= numberOfStars)
+        starIcon +=
+          "<i class='fa fa-star' aria-hidden='true' style='color: goldenrod'></i>";
       else
-      starIcon += "<i class='fa fa-star' aria-hidden='true' style='color: goldenrod; opacity : 0.3;'></i>";
+        starIcon +=
+          "<i class='fa fa-star' aria-hidden='true' style='color: goldenrod; opacity : 0.3;'></i>";
     }
-
-    const card = `<div class="d-flex flex-row">
+    const card = `<div class="d-flex flex-row rank__card">
     <div
       class="d-inline-flex px-5 justify-content-center align-items-center child-serial-no"
     >
@@ -75,7 +79,7 @@ function duplicateCards(numberOfCards, dataArray) {
       <div class="d-flex child-player-name">${name}</div>
       <div class="d-flex">${starIcon}</div>
     </div>
-    <div class="d-inline-flex ml-auto mr-5 trophy">
+    <div class="d-inline-flex ml-auto trophy">
       <img
         src="static/images/trophy.png"
         alt="Trophy"
@@ -84,30 +88,22 @@ function duplicateCards(numberOfCards, dataArray) {
     </div>
   </div>`;
     newDivision.innerHTML += card;
-    newDivision.className = "col-10 offset-1 child py-3 mt-5";
+    newDivision.className = "col-10 offset-1 child py-3 mt-4";
     parent.append(newDivision);
     assignColorToCards();
   }
-
 }
-
 
 // Assign Random colors to divisions
-var colors = [];
-// Generate random colors
-for (var i = 0; i < 1000; i++) {
-  var color = '#' + Math.random().toString(16).substr(2, 6);
-  colors.push(color);
-}
+var colors = ["#ED494D", "#4E6CF6", "#72AE79", "#24292E", "#9d276f"];
 
 function randomcolors() {
   var randomNumber = Math.floor(Math.random() * colors.length);
   // console.log(colors[randomNumber]);
   return colors[randomNumber];
-};
+}
 
 function assignColorToCards() {
-
   var divisionList = document.querySelectorAll(".child");
 
   for (let i = 0; i < divisionList.length; i++) {
@@ -115,34 +111,3 @@ function assignColorToCards() {
     divisionList[i].style.backgroundColor = randomcolors();
   }
 }
-
-
-// Breakpoints
-$(window).resize(function () {
-  // console.log(window.innerWidth);
-  let playerList = document.querySelectorAll(".child-player-name");
-  let playerNumber = document.querySelectorAll(".child-serial-no");
-  let trophy = document.querySelectorAll(".trophy");
-  if (window.innerWidth <= 675) {
-    for (let i = 0; i < playerList.length; i++) {
-      playerList[i].classList.add("mt-3");
-      playerList[i].style.fontSize = "30px";
-      playerNumber[i].style.fontSize = "30px";
-      playerNumber[i].classList.remove("px-5");
-      playerNumber[i].classList.add("px-3");
-      trophy[i].classList.remove("mr-5");
-      trophy[i].classList.add("mr-0");
-
-    }
-  } else {
-    for (let i = 0; i < playerList.length; i++) {
-      playerList[i].classList.remove("mt-3");
-      playerList[i].style.fontSize = "50px";
-      playerNumber[i].style.fontSize = "50px";
-      playerNumber[i].classList.remove("px-3");
-      playerNumber[i].classList.add("px-5");
-      trophy[i].classList.remove("mr-0");
-      trophy[i].classList.add("mr-5");
-    }
-  }
-});
