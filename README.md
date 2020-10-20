@@ -2,7 +2,7 @@
 #### #30DaysOfCloud Leaderboard 
 
 
-<img src="./assets/images/concept.png" />
+<img src="static/images/concept.png" />
 
 This is the frontend project that uses a JSON API to fetch results for student's progress and display them on the web.
 
